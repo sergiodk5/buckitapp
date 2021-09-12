@@ -1,8 +1,18 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
+
+.sidebar {
+    width: 280px;
+    margin-left: -280px;
+    transition: margin 0.5s ease;
+
+    &.active {
+        margin-left: 0;
+    }
+}
