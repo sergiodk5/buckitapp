@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Sidebar from "./components/SIdebar";
+import Header from "./components/Header";
+import DashboardMain from "./Pages/DashboardMain";
+import Footer from "./components/Footer";
+import BucketNew from "./Pages/BucketNew";
+import BucketEdit from "./Pages/BucketEdit";
+import BucketView from "./Pages/BucketView";
 
 const Dashboard = () => {
     const [show, setShow] = useState(true);
@@ -14,26 +19,34 @@ const Dashboard = () => {
     };
 
     return (
-        <div
-            className="d-flex"
-            style={{
-                height: "100vh",
-                maxHeight: "100vh",
-                overflowX: "hidden",
-                overflowY: "auto",
-            }}
-        >
-            <Sidebar show={show} />
-            <div className="w-100">
-                <Header handleSidebar={handleSidebar} />
+        <Router basename={"/dashboard/"}>
+            <div className="d-flex">
+                <Sidebar show={show} />
+                <div
+                    className="w-100"
+                    style={{
+                        height: "100vh",
+                        maxHeight: "100vh",
+                        overflowX: "hidden",
+                        overflowY: "auto",
+                    }}
+                >
+                    <Header handleSidebar={handleSidebar} />
 
-                <div className="container">
-                    <h1>Dashboard</h1>
+                    <Switch>
+                        <Route path="/" exact component={DashboardMain} />
+                        <Route
+                            path="/bucket/create-new"
+                            component={BucketNew}
+                        />
+                        <Route path="/bucket/:id/edit" component={BucketEdit} />
+                        <Route path="/bucket/:id" component={BucketView} />
+                    </Switch>
+
+                    <Footer />
                 </div>
-
-                <Footer />
             </div>
-        </div>
+        </Router>
     );
 };
 

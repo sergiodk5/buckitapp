@@ -18,7 +18,7 @@ class CreateTodosTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
-            $table->boolean('completed')->default(false);
+            $table->boolean('done')->default(false);
             $table->foreignIdFor(Bucket::class);
             $table->timestamps();
             $table->softDeletes();
