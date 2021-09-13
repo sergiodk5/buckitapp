@@ -1,15 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-    faArrowLeft,
-    faCheck,
-    faTimes,
-    faPlus,
-    faEye,
-    faPencilAlt,
-    faTrash,
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faCheck } from "@fortawesome/free-solid-svg-icons";
+import TodoList from "../components/TodoList";
 
 import buckets from "../data/buckets";
 
@@ -65,158 +58,9 @@ const BucketView = () => {
                             </div>
                         </div>
 
-                        <div className="card mt-4">
-                            <div className="card-body">
-                                <div className="card-title d-flex justify-content-between align-items-center">
-                                    <h2>Todo Lists</h2>
-                                    <a
-                                        href="/"
-                                        className="btn btn-success text-white"
-                                    >
-                                        <FontAwesomeIcon icon={faPlus} />
-                                        <span className="ms-2">
-                                            Create new Todo List
-                                        </span>
-                                    </a>
-                                </div>
-
-                                <div className="card-text">
-                                    <div className="table-responsive">
-                                        <table className="table table-striped table-hover align-middle">
-                                            <thead>
-                                                <tr>
-                                                    <th>#</th>
-                                                    <th className="text-center">
-                                                        Name
-                                                    </th>
-                                                    <th className="text-center">
-                                                        items
-                                                    </th>
-                                                    <th className="text-center">
-                                                        Completed
-                                                    </th>
-                                                    <th className="d-flex justify-content-end">
-                                                        Actions
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {bucket.todos.map((todo) => (
-                                                    <tr key={todo.id}>
-                                                        <td>{todo.id}</td>
-                                                        <td className="text-center">
-                                                            {todo.name}
-                                                        </td>
-                                                        <td className="text-center">
-                                                            {todo.completed}/
-                                                            {todo.items}
-                                                        </td>
-                                                        <td className="text-center">
-                                                            <FontAwesomeIcon
-                                                                icon={
-                                                                    todo.done
-                                                                        ? faCheck
-                                                                        : faTimes
-                                                                }
-                                                                className={`text-${
-                                                                    todo.done
-                                                                        ? "success"
-                                                                        : "info"
-                                                                }`}
-                                                            />
-                                                        </td>
-                                                        <td className="d-flex justify-content-end">
-                                                            <div className="btn-group">
-                                                                <a
-                                                                    href="/"
-                                                                    className="btn btn-primary text-white"
-                                                                >
-                                                                    <FontAwesomeIcon
-                                                                        icon={
-                                                                            faEye
-                                                                        }
-                                                                    />
-                                                                </a>
-                                                                <a
-                                                                    href="/"
-                                                                    className="btn btn-warning"
-                                                                >
-                                                                    <FontAwesomeIcon
-                                                                        icon={
-                                                                            faPencilAlt
-                                                                        }
-                                                                    />
-                                                                </a>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-danger text-white"
-                                                                >
-                                                                    <FontAwesomeIcon
-                                                                        icon={
-                                                                            faTrash
-                                                                        }
-                                                                    />
-                                                                </a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                ))}
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                    <nav aria-label="navigation">
-                                        <ul className="pagination justify-content-end">
-                                            <li className="page-item disabled">
-                                                <a
-                                                    className="page-link"
-                                                    aria-label="Previous"
-                                                >
-                                                    <span aria-hidden="true">
-                                                        &laquo;
-                                                    </span>
-                                                </a>
-                                            </li>
-                                            <li className="page-item">
-                                                <a
-                                                    className="page-link"
-                                                    href="#"
-                                                >
-                                                    1
-                                                </a>
-                                            </li>
-                                            <li className="page-item">
-                                                <a
-                                                    className="page-link"
-                                                    href="#"
-                                                >
-                                                    2
-                                                </a>
-                                            </li>
-                                            <li className="page-item">
-                                                <a
-                                                    className="page-link"
-                                                    href="#"
-                                                >
-                                                    3
-                                                </a>
-                                            </li>
-                                            <li className="page-item">
-                                                <a
-                                                    className="page-link"
-                                                    href="#"
-                                                    aria-label="Next"
-                                                >
-                                                    <span aria-hidden="true">
-                                                        &raquo;
-                                                    </span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
+                        {bucket?.todos && 0 < bucket.todos.length && (
+                            <TodoList todos={bucket.todos} />
+                        )}
                     </div>
                 </div>
             )}
