@@ -18347,7 +18347,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
-/* harmony import */ var _components_SIdebar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/SIdebar */ "./resources/js/components/SIdebar.js");
+/* harmony import */ var _components_Sidebar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Sidebar */ "./resources/js/components/Sidebar.js");
 /* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Header */ "./resources/js/components/Header.js");
 /* harmony import */ var _Pages_DashboardMain__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Pages/DashboardMain */ "./resources/js/Pages/DashboardMain.js");
 /* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Footer */ "./resources/js/components/Footer.js");
@@ -18395,7 +18395,7 @@ var Dashboard = function Dashboard() {
     basename: "/dashboard/",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
       className: "d-flex",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_SIdebar__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_Sidebar__WEBPACK_IMPORTED_MODULE_2__["default"], {
         show: show
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
         className: "w-100",
@@ -19354,9 +19354,9 @@ var PaginationNav = function PaginationNav() {
 
 /***/ }),
 
-/***/ "./resources/js/components/SIdebar.js":
+/***/ "./resources/js/components/Sidebar.js":
 /*!********************************************!*\
-  !*** ./resources/js/components/SIdebar.js ***!
+  !*** ./resources/js/components/Sidebar.js ***!
   \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
