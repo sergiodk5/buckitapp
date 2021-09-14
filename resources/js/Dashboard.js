@@ -3,11 +3,12 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
-import DashboardMain from "./Pages/DashboardMain";
+import DashboardMain from "./pages/DashboardMain";
 import Footer from "./components/Footer";
-import BucketNew from "./Pages/BucketNew";
-import BucketEdit from "./Pages/BucketEdit";
-import BucketView from "./Pages/BucketView";
+import BucketNew from "./pages/BucketNew";
+import BucketEdit from "./pages/BucketEdit";
+import BucketView from "./pages/BucketView";
+import TodoView from "./pages/TodoView";
 
 const Dashboard = () => {
     const [show, setShow] = useState(true);
@@ -36,11 +37,19 @@ const Dashboard = () => {
                     <Switch>
                         <Route path="/" exact component={DashboardMain} />
                         <Route
-                            path="/bucket/create-new"
+                            path="/buckets/create-new"
                             component={BucketNew}
                         />
-                        <Route path="/bucket/:id/edit" component={BucketEdit} />
-                        <Route path="/bucket/:id" component={BucketView} />
+                        <Route
+                            path="/buckets/:id/edit"
+                            exact
+                            component={BucketEdit}
+                        />
+                        <Route
+                            path="/buckets/:id/:todoid"
+                            component={TodoView}
+                        />
+                        <Route path="/buckets/:id" component={BucketView} />
                     </Switch>
 
                     <Footer />

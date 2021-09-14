@@ -59,7 +59,7 @@ const BucketView = () => {
                         </div>
 
                         {bucket?.todos && 0 < bucket.todos.length && (
-                            <TodoList todos={bucket.todos} />
+                            <TodoList bucket={bucket.id} todos={bucket.todos} />
                         )}
                     </div>
                 </div>

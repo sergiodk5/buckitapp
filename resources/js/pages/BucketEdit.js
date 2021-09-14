@@ -32,7 +32,7 @@ const BucketEdit = () => {
                         <div className="d-flex justify-content-between align-items-center">
                             <h1>Edit Bucket {bucket.name}</h1>
                             <Link
-                                to={`/bucket/${id}`}
+                                to={`/buckets/${id}`}
                                 className="btn btn-primary text-white"
                             >
                                 <FontAwesomeIcon icon={faArrowLeft} />

@@ -68,13 +68,13 @@ const DashboardMain = () => {
                                     <td className="d-flex justify-content-end">
                                         <div className="btn-group">
                                             <Link
-                                                to={`/bucket/${bucket.id}`}
+                                                to={`/buckets/${bucket.id}`}
                                                 className="btn btn-primary text-white"
                                             >
                                                 <FontAwesomeIcon icon={faEye} />
                                             </Link>
                                             <Link
-                                                to={`/bucket/${bucket.id}/edit`}
+                                                to={`/buckets/${bucket.id}/edit`}
                                                 className="btn btn-warning"
                                             >
                                                 <FontAwesomeIcon

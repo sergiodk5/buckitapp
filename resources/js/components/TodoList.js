@@ -1,4 +1,4 @@
-import PaginationNav from "./PaginationNav";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faCheck,
@@ -8,14 +8,15 @@ import {
     faPencilAlt,
     faTrash,
 } from "@fortawesome/free-solid-svg-icons";
+import PaginationNav from "./PaginationNav";
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ bucket, todos }) => {
     return (
         <div className="card mt-4">
             <div className="card-body">
                 <div className="card-title d-flex justify-content-between align-items-center">
                     <h2>Todo Lists</h2>
-                    <a href="/" className="btn btn-success text-white">
+                    <a href="#" className="btn btn-success text-white">
                         <FontAwesomeIcon icon={faPlus} />
                         <span className="ms-2">Create new Todo List</span>
                     </a>
@@ -61,14 +62,14 @@ const TodoList = ({ todos }) => {
                                         </td>
                                         <td className="d-flex justify-content-end">
                                             <div className="btn-group">
-                                                <a
-                                                    href="/"
+                                                <Link
+                                                    to={`/buckets/${bucket}/${todo.id}`}
                                                     className="btn btn-primary text-white"
                                                 >
                                                     <FontAwesomeIcon
                                                         icon={faEye}
                                                     />
-                                                </a>
+                                                </Link>
                                                 <a
                                                     href="/"
                                                     className="btn btn-warning"
