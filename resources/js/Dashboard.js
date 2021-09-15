@@ -12,6 +12,10 @@ import TodoView from "./pages/TodoView";
 import TodoNew from "./pages/TodoNew";
 import TodoEdit from "./pages/TodoEdit";
 
+import TaskView from "./pages/TaskView";
+import TaskNew from "./pages/TaskNew";
+import TaskEdit from "./pages/TaskEdit";
+
 const Dashboard = () => {
     const [show, setShow] = useState(true);
 
@@ -66,6 +70,21 @@ const Dashboard = () => {
                             path="/buckets/:id/:todoid/edit"
                             exact
                             component={TodoEdit}
+                        />
+                        <Route
+                            path="/buckets/:id/:todoid/create-new"
+                            exact
+                            component={TaskNew}
+                        />
+                        <Route
+                            path="/buckets/:id/:todoid/:taskid"
+                            exact
+                            component={TaskView}
+                        />
+                        <Route
+                            path="/buckets/:id/:todoid/:taskid/edit"
+                            exact
+                            component={TaskEdit}
                         />
                     </Switch>
 

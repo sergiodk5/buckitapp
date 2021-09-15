@@ -15,6 +15,14 @@ const buckets = [
                 done: true,
                 items: 1,
                 completed: 1,
+                tasks: [
+                    {
+                        id: 1,
+                        name: "Task 1",
+                        description: "This is the description",
+                        done: true,
+                    },
+                ],
             },
         ],
     },
@@ -34,6 +42,20 @@ const buckets = [
                 done: false,
                 items: 2,
                 completed: 1,
+                tasks: [
+                    {
+                        id: 2,
+                        name: "Task 2",
+                        description: "This is the description",
+                        done: true,
+                    },
+                    {
+                        id: 3,
+                        name: "Task 3",
+                        description: "This is the description",
+                        done: true,
+                    },
+                ],
             },
             {
                 id: 3,
@@ -42,6 +64,14 @@ const buckets = [
                 done: false,
                 items: 1,
                 completed: 0,
+                tasks: [
+                    {
+                        id: 4,
+                        name: "Task 4",
+                        description: "This is the description",
+                        done: true,
+                    },
+                ],
             },
         ],
     },
