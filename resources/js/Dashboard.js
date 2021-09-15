@@ -9,6 +9,8 @@ import BucketNew from "./pages/BucketNew";
 import BucketEdit from "./pages/BucketEdit";
 import BucketView from "./pages/BucketView";
 import TodoView from "./pages/TodoView";
+import TodoNew from "./pages/TodoNew";
+import TodoEdit from "./pages/TodoEdit";
 
 const Dashboard = () => {
     const [show, setShow] = useState(true);
@@ -41,15 +43,30 @@ const Dashboard = () => {
                             component={BucketNew}
                         />
                         <Route
+                            path="/buckets/:id"
+                            exact
+                            component={BucketView}
+                        />
+                        <Route
                             path="/buckets/:id/edit"
                             exact
                             component={BucketEdit}
                         />
                         <Route
+                            path="/buckets/:id/create-new"
+                            exact
+                            component={TodoNew}
+                        />
+                        <Route
                             path="/buckets/:id/:todoid"
+                            exact
                             component={TodoView}
                         />
-                        <Route path="/buckets/:id" component={BucketView} />
+                        <Route
+                            path="/buckets/:id/:todoid/edit"
+                            exact
+                            component={TodoEdit}
+                        />
                     </Switch>
 
                     <Footer />

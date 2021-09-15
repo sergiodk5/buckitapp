@@ -11,15 +11,24 @@ import {
 import PaginationNav from "./PaginationNav";
 
 const TodoList = ({ bucket, todos }) => {
+    const handleDelete = (e, id) => {
+        e.preventDefault();
+
+        console.log(id);
+    };
+
     return (
         <div className="card mt-4">
             <div className="card-body">
                 <div className="card-title d-flex justify-content-between align-items-center">
                     <h2>Todo Lists</h2>
-                    <a href="#" className="btn btn-success text-white">
+                    <Link
+                        to={`/buckets/${bucket}/create-new`}
+                        className="btn btn-success text-white"
+                    >
                         <FontAwesomeIcon icon={faPlus} />
                         <span className="ms-2">Create new Todo List</span>
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="card-text">
@@ -70,22 +79,24 @@ const TodoList = ({ bucket, todos }) => {
                                                         icon={faEye}
                                                     />
                                                 </Link>
-                                                <a
-                                                    href="/"
+                                                <Link
+                                                    to={`/buckets/${bucket}/${todo.id}/edit`}
                                                     className="btn btn-warning"
                                                 >
                                                     <FontAwesomeIcon
                                                         icon={faPencilAlt}
                                                     />
-                                                </a>
-                                                <a
-                                                    href="#"
+                                                </Link>
+                                                <button
                                                     className="btn btn-danger text-white"
+                                                    onClick={(e) =>
+                                                        handleDelete(e, todo.id)
+                                                    }
                                                 >
                                                     <FontAwesomeIcon
                                                         icon={faTrash}
                                                     />
-                                                </a>
+                                                </button>
                                             </div>
                                         </td>
                                     </tr>
