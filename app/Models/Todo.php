@@ -24,6 +24,16 @@ class Todo extends Model
 
     public function items()
     {
-        return $this->hasManyThrough(Item::class, Todo::class);
+        return $this->hasMany(Item::class);
+    }
+
+    public function getTotalItemsAttribute()
+    {
+        return $this->hasMany(Item::class)->count();
+    }
+
+    public function getCompletedItemsAttribute()
+    {
+        return $this->hasMany(Item::class)->where('done', true)->count();
     }
 }

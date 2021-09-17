@@ -27,4 +27,19 @@ class Bucket extends Model
     {
         return $this->hasMany(Todo::class);
     }
+
+    public function getTotalTodosAttribute()
+    {
+        return $this->hasMany(Todo::class)->count();
+    }
+
+    public function getCompletedTodosAttribute()
+    {
+        return $this->hasMany(Todo::class)->where('done', true)->count();
+    }
+
+    public function items()
+    {
+        return $this->hasManyThrough(Item::class, Todo::class);
+    }
 }
