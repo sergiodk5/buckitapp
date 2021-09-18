@@ -15,7 +15,7 @@ import TodoEdit from "./pages/TodoEdit";
 import TaskView from "./pages/TaskView";
 import TaskNew from "./pages/TaskNew";
 import TaskEdit from "./pages/TaskEdit";
-import axios from "axios";
+import { BucketProvider } from "./context/bucketsData";
 
 const Dashboard = () => {
     const [show, setShow] = useState(true);
@@ -26,80 +26,75 @@ const Dashboard = () => {
         setShow(!show);
     };
 
-    const fetchBuckets = async () => {
-        const res = await axios("/api/buckets");
-        console.log(res);
-    };
-
-    fetchBuckets();
-
     return (
-        <Router basename={"/dashboard/"}>
-            <div className="d-flex">
-                <Sidebar show={show} />
-                <div
-                    className="w-100"
-                    style={{
-                        height: "100vh",
-                        maxHeight: "100vh",
-                        overflowX: "hidden",
-                        overflowY: "auto",
-                    }}
-                >
-                    <Header handleSidebar={handleSidebar} />
+        <BucketProvider>
+            <Router basename={"/dashboard/"}>
+                <div className="d-flex">
+                    <Sidebar show={show} />
+                    <div
+                        className="w-100"
+                        style={{
+                            height: "100vh",
+                            maxHeight: "100vh",
+                            overflowX: "hidden",
+                            overflowY: "auto",
+                        }}
+                    >
+                        <Header handleSidebar={handleSidebar} />
 
-                    <Switch>
-                        <Route path="/" exact component={DashboardMain} />
-                        <Route
-                            path="/buckets/create-new"
-                            component={BucketNew}
-                        />
-                        <Route
-                            path="/buckets/:id"
-                            exact
-                            component={BucketView}
-                        />
-                        <Route
-                            path="/buckets/:id/edit"
-                            exact
-                            component={BucketEdit}
-                        />
-                        <Route
-                            path="/buckets/:id/create-new"
-                            exact
-                            component={TodoNew}
-                        />
-                        <Route
-                            path="/buckets/:id/:todoid"
-                            exact
-                            component={TodoView}
-                        />
-                        <Route
-                            path="/buckets/:id/:todoid/edit"
-                            exact
-                            component={TodoEdit}
-                        />
-                        <Route
-                            path="/buckets/:id/:todoid/create-new"
-                            exact
-                            component={TaskNew}
-                        />
-                        <Route
-                            path="/buckets/:id/:todoid/:taskid"
-                            exact
-                            component={TaskView}
-                        />
-                        <Route
-                            path="/buckets/:id/:todoid/:taskid/edit"
-                            exact
-                            component={TaskEdit}
-                        />
-                    </Switch>
+                        <Switch>
+                            <Route path="/" exact component={DashboardMain} />
+                            <Route
+                                path="/buckets/create-new"
+                                component={BucketNew}
+                            />
+                            <Route
+                                path="/buckets/:id"
+                                exact
+                                component={BucketView}
+                            />
+                            <Route
+                                path="/buckets/:id/edit"
+                                exact
+                                component={BucketEdit}
+                            />
+                            <Route
+                                path="/buckets/:id/create-new"
+                                exact
+                                component={TodoNew}
+                            />
+                            <Route
+                                path="/buckets/:id/:todoid"
+                                exact
+                                component={TodoView}
+                            />
+                            <Route
+                                path="/buckets/:id/:todoid/edit"
+                                exact
+                                component={TodoEdit}
+                            />
+                            <Route
+                                path="/buckets/:id/:todoid/create-new"
+                                exact
+                                component={TaskNew}
+                            />
+                            <Route
+                                path="/buckets/:id/:todoid/:taskid"
+                                exact
+                                component={TaskView}
+                            />
+                            <Route
+                                path="/buckets/:id/:todoid/:taskid/edit"
+                                exact
+                                component={TaskEdit}
+                            />
+                        </Switch>
 
-                    <Footer />
+                        <Footer />
+                    </div>
                 </div>
-            </div>
-        </Router>
+            </Router>
+        </BucketProvider>
     );
 };
 
