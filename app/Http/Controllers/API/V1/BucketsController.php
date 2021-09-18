@@ -7,6 +7,7 @@ use App\Http\Resources\BucketResource;
 use App\Models\Bucket;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BucketsController extends Controller
 {
@@ -17,9 +18,8 @@ class BucketsController extends Controller
      */
     public function index()
     {
-        $user = User::findOrFail(1);
-        // $buckets = auth()->user()->buckets;
-        return BucketResource::collection($user->buckets);
+        $buckets = Auth::user()->buckets;
+        return BucketResource::collection($buckets);
     }
 
     /**

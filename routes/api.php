@@ -7,4 +7,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('buckets', App\Http\Controllers\API\V1\BucketsController::class);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::apiResource('buckets', App\Http\Controllers\API\V1\BucketsController::class);
+});

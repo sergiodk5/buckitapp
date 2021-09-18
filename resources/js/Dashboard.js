@@ -15,6 +15,7 @@ import TodoEdit from "./pages/TodoEdit";
 import TaskView from "./pages/TaskView";
 import TaskNew from "./pages/TaskNew";
 import TaskEdit from "./pages/TaskEdit";
+import axios from "axios";
 
 const Dashboard = () => {
     const [show, setShow] = useState(true);
@@ -24,6 +25,13 @@ const Dashboard = () => {
 
         setShow(!show);
     };
+
+    const fetchBuckets = async () => {
+        const res = await axios("/api/buckets");
+        console.log(res);
+    };
+
+    fetchBuckets();
 
     return (
         <Router basename={"/dashboard/"}>
